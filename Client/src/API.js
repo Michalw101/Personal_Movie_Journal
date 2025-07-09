@@ -29,6 +29,7 @@ export async function serverRequests(method, URL, body) {
     };
 
     try {
+        console.log('url: ', URL);
         const fetchResponse = await fetch(`http://localhost:3000/${URL}`, requestOption);
         console.log('fetch response: ', fetchResponse);
         return fetchResponse;

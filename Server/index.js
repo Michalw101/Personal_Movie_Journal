@@ -26,10 +26,15 @@ app.use(session({
 connectDB();
 
 const PORT = process.env.PORT;
+console.log(`Connecting to database on port ${PORT}`);
 
-app.get('/', (req, res) => {
-  res.send('Hello world from Node.js');
-});
+
+const loginRouter = require("./routes/loginRouter");
+app.use("/login", loginRouter);
+
+const signupRouter = require("./routes/signupRouter");
+app.use("/signup", signupRouter);
+
 
 
 app.listen(PORT, () => {
