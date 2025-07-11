@@ -1,4 +1,4 @@
-const model = require('../model/loginModel');
+const model = require('../models/loginModel');
 const crypto = require('crypto');
 
 async function postLogin(body) {
@@ -8,7 +8,7 @@ async function postLogin(body) {
         const saltedPassword = password + salt;
         const hashedPassword = crypto.createHash('sha256').update(saltedPassword).digest('hex');
        console.log(hashedPassword);
-        return model.postLogin({ ...body, password: hashedPassword });
+        // return model.postLogin({ ...body, password: hashedPassword });
 
     } catch (err) {
         throw err;
